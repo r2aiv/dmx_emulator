@@ -1,0 +1,26 @@
+--cpu Cortex-M4.fp
+"dmx_master\system_stm32f4xx.o"
+"dmx_master\stm32f4xx_it.o"
+"dmx_master\stm32f4xx_hal_msp.o"
+"dmx_master\main.o"
+"dmx_master\tm_stm32_delay.o"
+"dmx_master\stm32f4xx_hal_dma.o"
+"dmx_master\stm32f4xx_hal_rcc.o"
+"dmx_master\stm32f4xx_hal_flash_ex.o"
+"dmx_master\stm32f4xx_hal_dma_ex.o"
+"dmx_master\stm32f4xx_hal_cortex.o"
+"dmx_master\stm32f4xx_hal_uart.o"
+"dmx_master\stm32f4xx_hal_rcc_ex.o"
+"dmx_master\stm32f4xx_hal_pwr_ex.o"
+"dmx_master\stm32f4xx_hal_flash.o"
+"dmx_master\stm32f4xx_hal_flash_ramfunc.o"
+"dmx_master\stm32f4xx_hal.o"
+"dmx_master\stm32f4xx_hal_pwr.o"
+"dmx_master\stm32f4xx_hal_gpio.o"
+"dmx_master\stm32f4xx_hal_tim_ex.o"
+"dmx_master\stm32f4xx_hal_tim.o"
+"dmx_master\startup_stm32f407xx.o"
+--library_type=microlib --strict --scatter "dmx_master\dmx_master.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "dmx_master.map" -o dmx_master\dmx_master.axf
