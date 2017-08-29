@@ -117,7 +117,6 @@ int main(void)
 		GPIO6_ModeGPIO();
 		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,GPIO_PIN_RESET); // BREAK 174 uS
 		Delay(150);
-		//Delayms(1);
 		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,GPIO_PIN_SET); // MAB 14 uS
     Delay(14);
 		
