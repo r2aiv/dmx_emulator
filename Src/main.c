@@ -119,10 +119,10 @@ int main(void)
 		Delay(150);
 		//Delayms(1);
 		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_6,GPIO_PIN_SET); // MAB 14 uS
-    //Delay(10);
+    Delay(14);
 		
-		GPIO6_ModeUART();
-		
+		GPIO6_ModeUART();		
+				
 		for(i=0;i<=512;i++)
 		{
 			HAL_UART_Transmit(&huart6,(void *)&DMXBuff[i],sizeof(unsigned char),10);			
@@ -242,14 +242,43 @@ static void GPIO6_ModeGPIO(void)
   GPIO_InitStruct.Pin = GPIO_PIN_6;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);	
+	
+//HAL_UART_DeInit(&huart6);
+
+//GPIOC->MODER |= 0x1000; //PC6 - GPIO выход
+//GPIOC->MODER &= ~0x2000; 
+//	
+//GPIOC->PUPDR |= 0x1000; //Пуллап
+//GPIOC->PUPDR &= ~0x2000;
+//	
+//GPIOC->OSPEEDR |= 0x3000; // Высокая скорость	
 	
 }
 
+
 static void GPIO6_ModeUART(void)
 {
+	GPIO_InitTypeDef GPIO_InitStruct;
+	
+  /*Configure GPIO pin : PC6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);	
+	
+//	GPIOC->MODER &= ~0x1000; //PC6 - GPIO выход
+//  GPIOC->MODER |= 0x2000; 
+//	
+//  GPIOC->PUPDR |= 0x1000; //Пуллап
+//  GPIOC->PUPDR &= ~0x2000;
+//	
+//  GPIOC->OSPEEDR |= 0x3000; // Высокая скорость		
+	
 	MX_USART6_UART_Init();
+	
 }
 
 /* USER CODE END 4 */
