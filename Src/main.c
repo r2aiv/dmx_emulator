@@ -106,7 +106,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	
 	DMXBuff[0]=0x00;
-	strcpy((char *)DMXBuff+1,"Brit-kommanda! Britantsy o shotlandtsy na kuratorstve! 8(985)245-25-34");
+	strcpy((char *)DMXBuff+1,"Brit-kommanda! Britantsy o shotlandtsy na kuratorstve! 8(xxx)xxx-xx-xx");
 
   /* USER CODE END 2 */
 
